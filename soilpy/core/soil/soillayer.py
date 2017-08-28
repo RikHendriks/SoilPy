@@ -90,8 +90,6 @@ class SoilLayer(Soil):
         """
 
 
-
-
     def stress_tensor(self, level):
         """
         Returns the stress tensor at the given level.
@@ -107,4 +105,3 @@ class SoilLayer(Soil):
         :param level: the level at which the tensor is calculated.
         :return: returns the stress tensor of the soil layer at point d, Stress2D class.
         """
-
