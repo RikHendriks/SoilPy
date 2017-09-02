@@ -8,9 +8,18 @@ class SoilManager:
     def __init__(self):
         self.soil_layer_list = []
 
+    # Add checks, such that the soil layer is under the previous one
     def add_soil_layer(self, s_l):
+        # If s_l is a soil layer
         if isinstance(s_l, SoilLayer):
-            self.soil_layer_list += s_l
+            # If the water level is in the soil layer, then split it into two parts
+            if s_l.water_layer.level < s_l.top_level and s_l.water_layer.level > s_l.bottom_level:
+                # Top soil layer
+                self.soil_layer_list.append(SoilLayer(s_l.soil, s_l.water_layer, s_l.top_level, s_l.water_layer.level))
+                # Bottom soil layer
+                self.soil_layer_list.append(SoilLayer(s_l.soil, s_l.water_layer, s_l.water_layer.level, s_l.bottom_level))
+            else:
+                self.soil_layer_list.append(s_l)
 
     def process_function(self, func, data):
         """
@@ -20,5 +29,5 @@ class SoilManager:
         :param data:
         :return:
         """
-        for s_l in self.soil_layer_list:
-            func(s_l, data)
+        for i in range(0, len(self.soil_layer_list)):
+            func(self.soil_layer_list[i], data, i)
