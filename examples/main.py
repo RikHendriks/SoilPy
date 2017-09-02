@@ -1,6 +1,6 @@
 from soilpy import *
 
-water_level = WaterLayer(-1)
+water_level = WaterLayer(1)
 
 sand = Soil(18, 20)
 clay = Soil(17, 17)

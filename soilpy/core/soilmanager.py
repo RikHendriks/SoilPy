@@ -12,6 +12,9 @@ class SoilManager:
     def add_soil_layer(self, s_l):
         # If s_l is a soil layer
         if isinstance(s_l, SoilLayer):
+            # If the water level is above the soil layer and it is the first layer added, then add it to the list as a layer
+            if s_l.water_layer.level > s_l.top_level and len(self.soil_layer_list) is 0:
+                self.soil_layer_list.append(SoilLayer(Soil(10, 10), s_l.water_layer, s_l.water_layer.level, s_l.top_level))
             # If the water level is in the soil layer, then split it into two parts
             if s_l.water_layer.level < s_l.top_level and s_l.water_layer.level > s_l.bottom_level:
                 # Top soil layer
