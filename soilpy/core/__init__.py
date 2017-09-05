@@ -1,2 +1,2 @@
 from .soil import *
-from .soilmanager import *
+from .soilprofile import *
