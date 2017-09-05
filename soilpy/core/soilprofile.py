@@ -38,6 +38,20 @@ class SoilProfile:
             func(self, data, i)
 
 
+    def process_soil_mechanics(self, data):
+        """
+        Applies all the soil mechanics functions to the data class.
+
+        :param data:
+        :return:
+        """
+        self.process_function(calculate_level, data)
+        self.process_function(calculate_water_pressure, data)
+        self.process_function(calculate_vertical_normal_stress, data)
+        self.process_function(calculate_effective_vertical_normal_stress, data)
+        self.process_function(calculate_effective_horizontal_stress, data)
+
+
     # TODO change the name of the soil angle
     def calculate_soil_pressure_coefficient(self, a):
         """

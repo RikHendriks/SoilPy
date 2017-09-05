@@ -12,10 +12,6 @@ s_p.add_soil_layer(SoilLayer(sand, water_level, -4, -10))
 
 data = SoilProfileData()
 
-s_p.process_function(calculate_level, data)
-s_p.process_function(calculate_water_pressure, data)
-s_p.process_function(calculate_vertical_normal_stress, data)
-s_p.process_function(calculate_effective_vertical_normal_stress, data)
-s_p.process_function(calculate_effective_horizontal_stress, data)
+s_p.process_soil_mechanics(data)
 
 print(data)
