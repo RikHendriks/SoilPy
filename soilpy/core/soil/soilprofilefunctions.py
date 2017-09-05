@@ -1,23 +1,47 @@
 from .soil import  *
 
 
-class SoilMechanicsData():
+class SoilProfileData():
     """
     The soil mechanics data class
     """
 
     def __init__(self):
+        self.level_list = []
         self.water_pressure_list = []
         self.vertical_normal_stress_list = []
         self.effective_vertical_normal_stress_list = []
         self.effective_horizontal_normal_stress_list = []
 
     def __str__(self):
-        output = "Water pressure: " + str(self.water_pressure_list) + "\n"
+        output = "Level: " + str(self.level_list) + "\n"
+        output += "Water pressure: " + str(self.water_pressure_list) + "\n"
         output += "Vertical normal stress: " + str(self.vertical_normal_stress_list) + "\n"
         output += "Effective vertical normal stress: " + str(self.effective_vertical_normal_stress_list) + "\n"
         output += "Effective horizontal normal stress: " + str(self.effective_horizontal_normal_stress_list)
         return output
+
+
+def calculate_level(s_p, data, i):
+    """
+    Calculates the level.
+
+    :param s_p:
+    :param data:
+    :param i:
+    :return:
+    """
+    # Output variables
+    output = [0, 0]
+    # Current soillayer
+    s_l = s_p.soil_layer_list[i]
+    # Calculate the level for the bottom and top level
+    # Top
+    output[0] = s_l.top_level
+    # Bottom
+    output[1] = s_l.bottom_level
+    # Add the output to the water pressure list
+    data.level_list.append(output)
 
 
 def calculate_water_pressure(s_p, data, i):
