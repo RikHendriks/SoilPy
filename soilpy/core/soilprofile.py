@@ -50,6 +50,7 @@ class SoilProfile:
         self.process_function(calculate_vertical_normal_stress, data)
         self.process_function(calculate_effective_vertical_normal_stress, data)
         self.process_function(calculate_effective_horizontal_stress, data)
+        self.process_function(calculate_horizontal_normal_stress, data)
 
 
     # TODO change the name of the soil angle
