@@ -13,7 +13,7 @@ if __name__ == '__main__':
         author='Rik Hendriks',
         author_email='rikhendriks@rocketmail.com',
         license='MIT License',
-        packages=['soilpy', 'soilpy.core', 'soil.core.soil', 'soilpy.tests'],
+        packages=['soilpy', 'soilpy.core', 'soil.core.soil', 'soil.core.soil', 'soilpy.tests'],
         install_requires=[
             "numpy",
             "matplotlib"

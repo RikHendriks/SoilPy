@@ -1,7 +1,4 @@
-from .soil import  *
-
-import math
-
+from soilpy.core.plotter import *
 
 class SoilProfileData():
     """
@@ -15,8 +12,7 @@ class SoilProfileData():
         self.horizontal_normal_stress_list = []
         self.effective_vertical_normal_stress_list = []
         self.effective_horizontal_normal_stress_list = []
-
-        self.test_list = []
+        self.plotter = Plotter(self)
 
     def __str__(self):
         output = "Level: " + str(self.level_list) + "\n"
@@ -27,11 +23,27 @@ class SoilProfileData():
         output += "Effective horizontal normal stress: " + str(self.effective_horizontal_normal_stress_list)
         return output
 
+    def plot(self, plot_values=True):
+        """
+        Plots the soil profile
+        """
+        self.plotter.plot_level_list(self.get_numpy_array_list(self.water_pressure_list))
+        self.plotter.plot_level_list(self.get_numpy_array_list(self.vertical_normal_stress_list))
+        self.plotter.plot_level_list(self.get_numpy_array_list(self.effective_vertical_normal_stress_list))
+
     def get_value_list(self, level, list):
         for i in range(0, len(self.level_list)):
             if level >= self.level_list[i][1]:
                 return list[i][0] - (((self.level_list[i][0] - level) / (self.level_list[i][0] - self.level_list[i][1])) * (list[i][0] - list[i][1]))
         return None
+
+    def get_numpy_array_list(self, list):
+        """
+        Returns a flattened numpy array of a list in the soilprofile.
+        :param list: A list from the soilprofile class.
+        :return: The flattened numpy array of the list.
+        """
+        return np.array(list).flatten()
 
 
 def calculate_level(s_p, data, i):

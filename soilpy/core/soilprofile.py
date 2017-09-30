@@ -7,7 +7,7 @@ class SoilProfile:
     Soil manager class.
     """
 
-    def __init__(self, s_p_c):
+    def __init__(self, s_p_c='n'):
         self.soil_layer_list = []
         self.soil_pressure_coefficient = s_p_c
 
