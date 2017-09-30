@@ -1,5 +1,7 @@
 from soilpy import *
 
+import matplotlib.pyplot as plt
+
 water_level = WaterLayer(1)
 
 sand = Soil(18, 20, 30)
@@ -14,4 +16,8 @@ data = SoilProfileData()
 
 s_p.process_soil_mechanics(data)
 
-print(data)
+# print(data)
+
+data.plot()
+
+plt.show()

@@ -1,12 +1,13 @@
 from .soil import *
 import math
 
+
 class SoilProfile:
     """
     Soil manager class.
     """
 
-    def __init__(self, s_p_c):
+    def __init__(self, s_p_c='n'):
         self.soil_layer_list = []
         self.soil_pressure_coefficient = s_p_c
 
@@ -37,7 +38,6 @@ class SoilProfile:
         for i in range(0, len(self.soil_layer_list)):
             func(self, data, i)
 
-
     def process_soil_mechanics(self, data):
         """
         Applies all the soil mechanics functions to the data class.
@@ -51,7 +51,6 @@ class SoilProfile:
         self.process_function(calculate_effective_vertical_normal_stress, data)
         self.process_function(calculate_effective_horizontal_stress, data)
         self.process_function(calculate_horizontal_normal_stress, data)
-
 
     # TODO change the name of the soil angle
     def calculate_soil_pressure_coefficient(self, a):
