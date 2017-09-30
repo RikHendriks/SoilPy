@@ -15,6 +15,7 @@ if __name__ == '__main__':
         license='MIT License',
         packages=['soilpy', 'soilpy.core', 'soil.core.soil', 'soilpy.tests'],
         install_requires=[
-            "numpy"
+            "numpy",
+            "matplotlib"
         ]
     )

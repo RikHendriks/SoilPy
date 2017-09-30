@@ -1,5 +1,7 @@
 from .soil import  *
 
+import math
+
 
 class SoilProfileData():
     """
@@ -14,6 +16,8 @@ class SoilProfileData():
         self.effective_vertical_normal_stress_list = []
         self.effective_horizontal_normal_stress_list = []
 
+        self.test_list = []
+
     def __str__(self):
         output = "Level: " + str(self.level_list) + "\n"
         output += "Water pressure: " + str(self.water_pressure_list) + "\n"
@@ -22,6 +26,12 @@ class SoilProfileData():
         output += "Effective vertical normal stress: " + str(self.effective_vertical_normal_stress_list) + "\n"
         output += "Effective horizontal normal stress: " + str(self.effective_horizontal_normal_stress_list)
         return output
+
+    def get_value_list(self, level, list):
+        for i in range(0, len(self.level_list)):
+            if level >= self.level_list[i][1]:
+                return list[i][0] - (((self.level_list[i][0] - level) / (self.level_list[i][0] - self.level_list[i][1])) * (list[i][0] - list[i][1]))
+        return None
 
 
 def calculate_level(s_p, data, i):
