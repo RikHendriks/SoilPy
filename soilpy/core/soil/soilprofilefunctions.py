@@ -63,9 +63,9 @@ class SoilProfileData:
         """
         Plots the soil profile
         """
-        self.plotter.plot_level_list(self.water_pressure.get_numpy_array(), plot_values)
-        self.plotter.plot_level_list(self.vertical_normal_stress.get_numpy_array(), plot_values)
-        self.plotter.plot_level_list(self.effective_vertical_normal_stress.get_numpy_array(), plot_values)
+        self.plotter.plot_level_list(self.water_pressure, plot_values)
+        self.plotter.plot_level_list(self.vertical_normal_stress, plot_values)
+        self.plotter.plot_level_list(self.effective_vertical_normal_stress, plot_values)
 
 
 def calculate_level(s_p, data, i):
