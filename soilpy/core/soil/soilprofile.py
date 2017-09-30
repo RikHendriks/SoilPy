@@ -1,4 +1,4 @@
-from .soil import *
+from soilpy.core.soil import *
 import math
 
 

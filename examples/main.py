@@ -16,7 +16,7 @@ data = SoilProfileData()
 
 s_p.process_soil_mechanics(data)
 
-# print(data)
+print(data)
 
 data.plot()
 

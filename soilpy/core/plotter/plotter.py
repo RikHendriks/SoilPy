@@ -10,9 +10,9 @@ class Plotter:
     def __init__(self, soil_profile):
         self.soil_profile = soil_profile
 
-    def plot_level_list(self, list, plot_values=True):
-        y = np.array(self.soil_profile.level_list).flatten()
-        plt.plot(list, y)
+    def plot_level_list(self, x, plot_values=True):
+        y = self.soil_profile.level.get_numpy_array()
+        plt.plot(x, y)
         if(plot_values):
-            for a, b in zip(list, y):
+            for a, b in zip(x, y):
                 plt.text(a, b, str(a))
