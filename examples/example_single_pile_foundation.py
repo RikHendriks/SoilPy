@@ -12,12 +12,13 @@ s_p.add_soil_layer(SoilLayer(sand, water_level, 0, -2))
 s_p.add_soil_layer(SoilLayer(clay, water_level, -2, -4))
 s_p.add_soil_layer(SoilLayer(sand, water_level, -4, -10))
 
-data = SoilProfileData(s_p)
+pile = SinglePile(s_p)
 
-data.process_soil_mechanics()
+pile.process()
+pile.calculate_negative_stick(1)
 
-print(data)
+print(pile)
 
-data.plot()
+pile.plot()
 
 plt.show()

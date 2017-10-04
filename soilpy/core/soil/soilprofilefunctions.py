@@ -36,7 +36,7 @@ class ProfileList:
         self.list.append(item)
 
 
-class SoilProfileData:
+class SoilMechanics:
     """
     The soil mechanics self class
     """
@@ -79,7 +79,7 @@ class SoilProfileData:
         for i in range(0, len(self.soil_profile.soil_layer_list)):
             func(i)
 
-    def process_soil_mechanics(self):
+    def process(self):
         """
         Applies all the soil mechanics functions to the data class.
 
