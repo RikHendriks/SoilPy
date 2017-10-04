@@ -2,6 +2,7 @@ import numpy as np
 
 from .soil import *
 
+
 class SoilLayer(Soil):
     """
     Soil layer data class.
